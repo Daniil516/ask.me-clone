@@ -1,0 +1,5 @@
+<h1>Question: <%=@question.id %></h1>
+<p> body: <%=@question.body %> user_id: <%=@question.user_id %> </p>
+<p> <%= link_to "All Questions", questions_path %></p>
+<%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions"
+Посмотреть все префиксы к рут-хелперам можно по команде rails routes -g questions show в терминале%>
