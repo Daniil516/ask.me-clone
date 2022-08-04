@@ -4,3 +4,4 @@
   <%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions/#{question.id}"
   Посмотреть все префиксы к рут-хелперам можно по команде rails routes -g questions show в терминале%>
 <% end %>
+<p> <%= link_to "Create new question", new_question_path %></p>

@@ -1,17 +1,19 @@
 class QuestionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def create
-    Question.create(
+    @question = Question.create(
       body: params[:question][:body],
       user_id: params[:question][:user_id]
     )
+    redirect_to question_path(@question)#without helper path: "/questions/#{@question.id}"
   end
 
   def update
     @question = Question.find(params[:id])
     @question.update(
-      body: params[:question][:body]
+      body: params[:question][:body],
+      user_id: params[:question][:user_id]
     )
+    redirect_to question_path(@question)
   end
 
   def destroy
@@ -27,5 +29,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def new
+    @question = Question.new
+  end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
 end
