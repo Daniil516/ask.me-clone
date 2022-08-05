@@ -1,7 +1,10 @@
 <div class="container">
   <h2 class="title-lg mb">All Questions:</h2>
-  <%@questions.each do |question|%>
-    <p class="mb-sm"> <%= link_to "Question #{question.id}", question_path(question.id)%></p>
+  <% @questions.each do |question| %>
+    <p class="mb-sm
+      <% if question.hidden %>
+        hidden_question
+      <% end %>"> <%= link_to "Question #{question.id}", question_path(question.id) %></p>
     <%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions/#{question.id}"
   Посмотреть все префиксы к рут-хелперам можно по команде rails routes -g questions show в терминале%>
   <% end %>

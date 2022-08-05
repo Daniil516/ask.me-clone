@@ -4,8 +4,13 @@ body {
 }
 
 a, button {
-  color: #DC2F02
+  color: rgba(220, 47, 2, 1)
 }
+
+.hidden_question a {
+  color: rgba(220, 47, 2, 0.5)
+}
+
 .title-lg {
   font-size: 175%;
 }

@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[show edit destroy update]
+  before_action :set_question, only: %i[show edit destroy update hide]
 
   def create
     @question = Question.create(question_params)
-    redirect_to question_path(@question)#without helper path: "/questions/#{@question.id}"
+    redirect_to question_path(@question) #without helper path: "/questions/#{@question.id}"
   end
 
   def update
@@ -32,7 +32,13 @@ class QuestionsController < ApplicationController
     @question
   end
 
+  def hide
+    @question.update(params.require(:question).permit(:hidden))
+    redirect_to question_path
+  end
+
   private
+
   def question_params
     params.require(:question).permit(:body, :user_id)
   end

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # delete '/questions/:id', to: 'questions#destroy'
   root to: 'questions#index'
   resources :questions
+  patch "/questions/:id/hide", to: "questions#hide"
 end
