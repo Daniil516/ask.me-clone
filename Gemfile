@@ -18,7 +18,7 @@ group :production do
 end
 
 group :development, :test do
-  gem "sqlite3"
+  gem "sqlite3 (~> 1.4)"
 end
 
 # Use the Puma web server [https://github.com/puma/puma]
