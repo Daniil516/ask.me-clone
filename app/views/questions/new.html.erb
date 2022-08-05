@@ -1,8 +1,17 @@
-<h1>New question</h1>
-<%= form_with model: @question do |form| %>
-  <p><%= form.label :body, "question text:" %></p>
-  <p><%= form.text_area :body, rows: 5 %></p>
-  <p><%= form.label :user_id, "user_id" %></p>
-  <p><%= form.number_field :user_id %></p>
-  <p><%= form.submit "Create question" %></p>
-<% end %>
+<div class="container">
+  <h2 class="title-lg">New question</h2>
+  <%= form_with model: @question  do |form| %>
+    <p><%= form.label :body, "question text:" %></p>
+    <p><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
+
+    <p class="mt"><%= form.label :user_id, "user_id:" %></p>
+    <p><%= form.number_field :user_id, class: "form-text-field" %></p>
+
+    <p class="mt">
+      <%= form.submit "Create", class: "button button-main" %>
+      or <%= link_to "Back", :back %>
+    </p>
+
+  <% end %>
+
+</div>
