@@ -1,16 +1,7 @@
 <div class="container">
   <h2 class="title-lg mb">Question: <%= @question.id %></h2>
 
-  <p class="mb-sm"> body: <%= @question.body %></p>
-  <p> user_id: <%= @question.user_id %> </p>
-
-  <p class="mt"> <%= link_to fa_icon("pencil"), edit_question_path, title: "Edit question" %></p>
-  <div> <%= button_to fa_icon("trash-o"), question_path(@question), method: :delete, title: "Delete question",
-                      form: { data: { turbo_confirm: "Are you sure?" } } %>
-  </div>
-  <% unless @question.hidden %>
-    <div> <%= button_to fa_icon("eye-slash"), hide_question_path, method: :patch, title: "Hide question" %> </div>
-  <% end %>
+  <%= render "question", question: @question %>
   <p class="mt"> <%= link_to "All Questions", questions_path %></p>
 <%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions"
 Посмотреть все префиксы к рут-хелперам можно по команде rails routes -g questions show в терминале%>

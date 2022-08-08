@@ -3,17 +3,17 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
-    redirect_to question_path(@question) #without helper path: "/questions/#{@question.id}"
+    redirect_to question_path(@question), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
   end
 
   def update
     @question.update(question_params)
-    redirect_to question_path(@question)
+    redirect_to question_path(@question), notice: "Question is updated!"
   end
 
   def destroy
     @question.destroy
-    redirect_to questions_path
+    redirect_to questions_path, notice: "Question is deleted!"
   end
 
   def show
@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @question = Question.new#для используемого паршла.
     @questions = Question.all
   end
 
@@ -34,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def hide
     @question.update(hidden: true)
-    redirect_to question_path
+    redirect_to question_path, notice: "Question is hidden now"
   end
 
   private
