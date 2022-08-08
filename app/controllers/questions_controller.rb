@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   end
 
   def hide
-    @question.update(params.require(:question).permit(:hidden))
+    @question.update(hidden: true)
     redirect_to question_path
   end
 

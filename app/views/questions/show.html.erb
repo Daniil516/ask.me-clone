@@ -9,9 +9,7 @@
                       form: { data: { turbo_confirm: "Are you sure?" } } %>
   </div>
   <% unless @question.hidden %>
-    <div> <%= button_to fa_icon("eye-slash"), "/questions/#{@question.id}/hide", method: :patch, title: "Hide question",
-                        params: { question: { hidden: true } } %>
-    </div>
+    <div> <%= button_to fa_icon("eye-slash"), hide_question_path, method: :patch, title: "Hide question" %> </div>
   <% end %>
   <p class="mt"> <%= link_to "All Questions", questions_path %></p>
 <%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions"
