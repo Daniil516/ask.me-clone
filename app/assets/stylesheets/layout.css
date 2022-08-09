@@ -12,5 +12,26 @@ body {
 
 .container {
   background: #fff;
+}
+
+.container, .navbar {
   padding: 20px;
 }
+
+.container {
+  background: #fff;
+}
+
+.navbar {
+  align-items: center;
+  background-color: #370617;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+

@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="title">Sign in</h2>
+
+  <p class="mt">Enter your username and password to log in to the site</p>
+
+  <div class="mt">
+    <%= form_with scope: :session, url: session_path do |form| %>
+      <p><%= form.label :email %></p>
+      <p><%= form.text_field :email, class: "form-text-field" %></p>
+
+      <p class="mt"><%= form.label :password, "Password" %></p>
+      <p><%= form.password_field :password, class: "form-text-field" %></p>
+
+      <p><%= form.submit "Sign in", class: "button button-main mt-lg" %></p>
+    <% end %>
+  </div>
+</div>
+
