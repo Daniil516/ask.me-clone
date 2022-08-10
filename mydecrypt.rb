@@ -1,4 +1,0 @@
-secret_key = "c4ec8706f80b14e1bdfe43fc993a46bff8d2342ecdcf8f4091aa3cc1090d1562870e0369b9d14a791aca002aa773157d5cb197f303b8d2f66fd218e5e63fdae3"
-cookie = "O9%2BZVauz06wNYNLwOQnrBdTEDvMSS5hR6QnuNzt0ZlfEx%2ByiaI2GN6HdrQ7UkoE%2FFnrG%2FKmX%2Fznh2twTqVaxMBz8F99LfosH7NjG%2FaREbuYy6kjM5%2FPIjQ2x3qGYO2DJ0JYNBFlUGMtXJi%2FCrw%2F80eyzwj%2BSd%2FN7LvTPIOZyYaCgwNf1YKSm6r6%2Fv711tL7hYjHxI8u9klmU5yyTJj5xk2oUMn3eimuKVtI18XWBY2mpqshXYZ70zM98v2l3Ra6oechUU4vXKYglBufbsUXm6wyDz%2B%2BijQ%3D%3D--JSASkhoQs3JidMhw--qTWIjCW5hftoZWCUypbang%3D%3D"
-verifier = ActiveSupport::MessageVerifier.new(secret_key, 'SHA1')
-puts verifier.verify(cookie)

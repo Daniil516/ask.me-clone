@@ -4,11 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:name, :nickname, :email, :password)
+    user_params = params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
 
-    user = User.create(user_params)
-    session[:user_id] = user.id
+    @user = User.new(user_params)
 
-    redirect_to root_path, notice: "You have successfully registered on AskMe"
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: "You have successfully registered on AskMe"
+    else
+      flash.now[:alert] = "Something went wrong with your data"
+      render :new
+    end
+
   end
 end
