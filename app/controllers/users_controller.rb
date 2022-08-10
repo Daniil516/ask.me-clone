@@ -6,8 +6,9 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit(:name, :nickname, :email, :password)
 
-    User.create(user_params)
+    user = User.create(user_params)
+    session[:user_id] = user.id
 
-    redirect_to root_path, notice: "You have successfully registered!"
+    redirect_to root_path, notice: "You have successfully registered on AskMe"
   end
 end
