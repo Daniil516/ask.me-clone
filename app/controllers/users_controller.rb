@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "You have successfully edited your data on AskMe"
     else
       flash.now[:alert] = "Something went wrong with your data edit"
-      render :new
+      render :edit
     end
 
   end
