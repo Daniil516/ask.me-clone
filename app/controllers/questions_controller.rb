@@ -2,13 +2,23 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show edit destroy update hide]
 
   def create
-    @question = Question.create(question_params)
-    redirect_to question_path(@question), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to question_path(@question), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
+    else
+      flash.now[:alert] = "Something went wrong!"
+      render :new
+    end
   end
 
   def update
-    @question.update(question_params)
-    redirect_to question_path(@question), notice: "Question is updated!"
+    if @question.update(question_params)
+      redirect_to question_path(@question), notice: "Question is edited!" #without helper path: "/questions/#{@question.id}"
+    else
+      flash.now[:alert] = "Something went wrong!"
+      render :edit
+    end
+
   end
 
   def destroy
