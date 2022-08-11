@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      session[:user_id] = @user.id
       redirect_to root_path, notice: "You have successfully edited your data on AskMe"
     else
       flash.now[:alert] = "Something went wrong with your data edit"
@@ -43,6 +42,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation, :header_color)
   end
 end
