@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to root_path, notice: "You have successfully edited your data on AskMe"
+      redirect_to root_path, notice: "You have successfully edited your data on AskMe#{user_params.header_color}"
     else
       flash.now[:alert] = "Something went wrong with your data edit"
       render :edit
