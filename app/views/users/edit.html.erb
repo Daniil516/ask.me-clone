@@ -10,15 +10,7 @@
   <% end %>
 
   <div class="mt">
-    <%# <form action="/action_page.php">
-      <label for="favcolor">Select your favorite color:</label>
-      <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
-      <input type="submit">
-    </form>%>
     <%= form_with model: @user, data: { turbo: false } do |form| %>
-      <p><%= form.label :header_color, "Header color" %></p>
-      <p><%= form.color_field :header_color %></p>
-
       <p><%= form.label :name, "Name" %></p>
       <p><%= form.text_field :name, class: "form-text-field" %></p>
 
@@ -32,6 +24,9 @@
 
       <p class="mt"><%= form.label :password_confirmation, "Password confirmation" %></p>
       <p><%= form.password_field :password_confirmation, class: "form-text-field" %></p>
+
+      <p class="mt-sm"><%= form.label :header_color, "Header color" %></p>
+      <p><%= form.color_field :header_color %></p>
 
       <p class="mt-lg">
         <%= form.submit "Save", class: "button button-main" %>
