@@ -39,6 +39,12 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Your account has been deleted"
   end
 
+  def show
+    @user = User.find(params[:id])
+    @questions = @user.questions
+    @question = Question.new(user_id: @user.id)
+  end
+
   private
 
   def user_params

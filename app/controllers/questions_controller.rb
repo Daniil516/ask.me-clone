@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to question_path(@question), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
+      redirect_to user_path(@question.user), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
     else
       flash.now[:alert] = "Something went wrong!"
       render :new
@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to question_path(@question), notice: "Question is edited!" #without helper path: "/questions/#{@question.id}"
+      redirect_to user_path(@question.user), notice: "Question is edited!" #without helper path: "/questions/#{@question.id}"
     else
       flash.now[:alert] = "Something went wrong!"
       render :edit
@@ -22,8 +22,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
-    redirect_to questions_path, notice: "Question is deleted!"
+    redirect_to user_path(@user), notice: "Question is deleted!"
   end
 
   def show
@@ -36,7 +37,9 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    debugger
+    @user = User.find(params[:user_id])
+    @question = Question.new(user_id: @user.id)
   end
 
   def edit
