@@ -2,7 +2,7 @@
   <h2 class="title-lg"><%= @questions.count %> <%= inclination("question", @questions.count) %> </h2>
 </div>
 
-<% @questions.each do |question| %>
+<% @questions.order(created_at: :desc).each do |question| %>
   <div class="mt-sm container <%= "hidden_question" if question.hidden %>">
     <%= render question %><%# равняется render "question", question: @question %>
   </div>
