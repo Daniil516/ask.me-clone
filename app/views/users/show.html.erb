@@ -2,9 +2,9 @@
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
 
   <% if current_user == @user %>
-  <p class="mt mb-lg">
-    <%= link_to fa_icon('pencil'), edit_user_path(@user) %>
-  </p>
+    <p class="mt mb-lg">
+      <%= link_to fa_icon('pencil'), edit_user_path(@user) %>
+    </p>
   <% end %>
 
   <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
@@ -17,12 +17,23 @@
   </p>
 </div>
 
-<div class="container mt-sm">
-  <h2 class="title-lg"><%= @questions.count %> <%= inclination("question", @questions.count) %> </h2>
-</div>
-
-<% @questions.each do |question| %>
-  <div class="mt-sm container <%= "hidden_question" if question.hidden %>">
-    <%= render question %><%# равняется render "question", question: @question %>
+<% if @questions.empty? %>
+  <div class="container mt-sm">
+    <h2 class="title-lg">This good fellow doesn't have any questions yet,
+      but you can <%= link_to "ask one", new_question_path(user_id: @user.id) %> 😌</h2>
   </div>
+
+
+<% else %>
+
+  <div class="container mt-sm">
+    <h2 class="title-lg"><%= @questions.count %> <%= inclination("question", @questions.count) %> </h2>
+  </div>
+
+  <% @questions.each do |question| %>
+    <div class="mt-sm container <%= "hidden_question" if question.hidden %>">
+      <%= render question %><%# равняется render "question", question: @question %>
+    </div>
+  <% end %>
+
 <% end %>
