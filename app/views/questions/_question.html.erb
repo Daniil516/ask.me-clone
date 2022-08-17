@@ -1,12 +1,13 @@
 <% author = User.find(question.created_by_user_id) if question.created_by_user_id.present? %>
 <div class="question-author-container">
-  <p>Created by
+  <p>Asked by
     <% if author.nil? %>
       <%= "stranger" %>
     <% else %>
       <%= link_to "@#{author.nickname}", user_path(author.id) %>
     <% end %>
   </p>
+  <p>to <%= link_to "@#{question.user.nickname}", user_path(question.user) %></p>
 </div>
 <div class="mb-sm question-body">
   <%= question.body %>
