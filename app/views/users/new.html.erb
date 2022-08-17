@@ -26,6 +26,8 @@
       <p class="mt"><%= form.label :password_confirmation, "Password" %></p>
       <p><%= form.password_field :password_confirmation, class: "form-text-field" %></p>
 
+      <p><%= form.hidden_field :header_color, value: "#370617" %></p>
+
       <p><%= form.submit "Register", class: "button button-main mt-lg" %></p>
     <% end %>
   </div>
