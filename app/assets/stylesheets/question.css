@@ -4,3 +4,7 @@
   justify-content: space-between;
   padding-top: 10px;
 }
+
+.question-author-container {
+  color: rgba(2,20,255,1);
+}
