@@ -37,8 +37,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @question = Question.new#для используемого паршла.
-    @questions = Question.all
+    @questions = Question.order(created_at: :desc).last(10)
+    @users = User.order(created_at: :desc).last(10)
   end
 
   def new

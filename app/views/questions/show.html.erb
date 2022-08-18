@@ -1,8 +1,10 @@
 <div class="container">
   <h2 class="title-lg mb">Question: <%= @question.id %></h2>
-
-  <%= render "question", question: @question %>
-  <p class="mt"> <%= link_to "All Questions", questions_path %></p>
+  <%= link_to "All @#{@question.user.nickname} questions", user_path(@question.user) %>
 <%#Наверху в пути использован рут-хелпер, заменяющий это выражение "/questions"
 Посмотреть все префиксы к рут-хелперам можно по команде rails routes -g questions show в терминале%>
+</div>
+
+<div class="container mt-sm">
+  <%= render "question", question: @question %>
 </div>
