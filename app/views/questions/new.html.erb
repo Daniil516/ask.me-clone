@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="title-lg">New question</h2>
-  <p class="mt-sm mb-sm">for <%= link_to "@"+ @user.nickname,  user_path(@user)%></p>
+  <p class="mt-sm mb-sm">for <%= link_to "@"+ @question.user.nickname, user_path(@question.user)%></p>
   <%= render "form", question: @question %>
   or <%= link_to "Back", :back %>
 </div>
