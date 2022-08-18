@@ -32,6 +32,15 @@
 
   <% @questions.each do |question| %>
     <div class="mt-sm container <%= "hidden_question" if question.hidden %>">
+      <div class="question-header">
+        <p>Question <%= link_to "##{question.id}", question_path(question) %> asked by
+          <% if question.author.nil? %>
+            <%= "stranger" %>
+          <% else %>
+            <%= link_to "@#{question.author.nickname}", user_path(question.author) %>
+          <% end %>
+        </p>
+      </div>
       <%= render question %><%# равняется render "question", question: @question %>
     </div>
   <% end %>
