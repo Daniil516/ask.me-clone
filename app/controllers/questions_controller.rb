@@ -4,9 +4,9 @@ class QuestionsController < ApplicationController
 
   def create
     question_params = params.require(:question).permit(:body, :user_id)
-    question_params[:created_by_user_id] = session[:user_id]
 
     @question = Question.new(question_params)
+    @question.author = current_user
     if @question.save
       redirect_to user_path(@question.user), notice: "New question is created!" #without helper path: "/questions/#{@question.id}"
     else
