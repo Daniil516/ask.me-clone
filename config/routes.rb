@@ -6,6 +6,6 @@ Rails.application.routes.draw do
       put :hide
     end
   end
-  resources :users, except: %i[index], param: :slug
+  resources :users, except: %i[index]
   resource :session, only: %i[new create destroy]
 end
