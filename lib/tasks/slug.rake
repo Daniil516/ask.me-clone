@@ -2,6 +2,7 @@
 # you need to fill "slug" fields(replacement of id in url) with user nicknames, so:
 namespace :slug do
   desc "TODO"
+  
   task fill_slug_with_user_nicknames: :environment do
     users = User.all
     users.each do |user|
@@ -9,5 +10,4 @@ namespace :slug do
       user.save
     end
   end
-
 end
