@@ -1,3 +1,14 @@
+<div class="question-header">
+  <p>Question <%= link_to "##{question.id}", question_path(question) %> asked by
+    <% if question.author.nil? %>
+      <%= "stranger" %>
+    <% else %>
+      <%= link_to "@#{question.author.nickname}", user_path(question.author) %>
+    <% end %>
+  </p>
+  <p>to <%= link_to "@#{question.user.nickname}", user_path(question.user) %></p>
+</div>
+
 <div class="mb-sm question-body">
   <%= question.body %>
 </div>
