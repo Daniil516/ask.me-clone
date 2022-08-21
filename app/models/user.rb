@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
   has_secure_password
   before_validation :downcase_nickname
-  before_update :set_slug
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
   validates :nickname, uniqueness: true, length: { maximum: 40 }, format: { with: /[a-zA-Z0-9_]/ }
@@ -12,14 +11,11 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: "mp")
 
-  extend FriendlyId
-  friendly_id :nickname, use: :slugged
-
   def downcase_nickname
     nickname.downcase!
   end
 
-  def set_slug
-    self.slug = self.nickname
+  def to_param
+    nickname
   end
 end
