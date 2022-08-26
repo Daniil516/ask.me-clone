@@ -1,0 +1,9 @@
+<div class="container mt-sm mb-sm">
+  <h1 class="title-lg">All questions with hashtag <span class="hashtag"><%= @hashtag.body %></span></h1>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="mt-sm container <%= "hidden_question" if question.hidden %>">
+    <%= render question %><%# равняется render "question", question: @question %>
+  </div>
+<% end %>

@@ -42,3 +42,7 @@ a, button {
 .question-body {
   white-space: pre-line;
 }
+
+.hashtag {
+  color: darkcyan;
+}
