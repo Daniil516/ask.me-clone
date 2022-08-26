@@ -5,18 +5,11 @@ class QuestionHashtag < ApplicationRecord
   before_validation :set_body, :set_hashtag_id
 
   def set_body
-    if body.nil?
-      self.body = self.hashtag.body
-    end
+    self.body = self.hashtag.body if body.nil?
   end
 
   #Если хэштег ранее использовался юзерами прикрепляем хэштег вопроса к нему
   def set_hashtag_id
-    if Hashtag.where(body: body).present?
-      existing_hashtag = Hashtag.where(body: body).first
-      self.hashtag_id = existing_hashtag.id
-    end
-    debugger
+    self.hashtag_id = Hashtag.where(body: body)&.first.id
   end
-
 end

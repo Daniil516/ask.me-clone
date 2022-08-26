@@ -11,8 +11,8 @@ class Question < ApplicationRecord
   after_commit :save_hashtags
 
   def find_hashtags
-    hashtag_regexp = /#[[:word:]-]+/
-    @hashtags = body.scan(hashtag_regexp)
+    @hashtags = body.scan(/#[[:word:]-]+/)
+    @hashtags += answer.scan(/#[[:word:]-]+/) if answer.present?
     @hashtags.map! { |elem| elem.downcase }
   end
 
