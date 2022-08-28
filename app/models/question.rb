@@ -24,7 +24,9 @@ class Question < ApplicationRecord
     # то нам незачем создавать его повторно. Просто инициализируем его для конкретного вопроса, а не в общем
     @hashtags.uniq.each do |hashtag|
       if Hashtag.where(body: hashtag).present?
-        self.question_hashtags.create(body: hashtag)
+        debugger
+        #self.hashtags.where(body: hashtag)[0].question_hashtags.create
+        Hashtag.where(body: hashtag)[0].question_hashtags.create(question_id: id)
       else
         self.hashtags.create(body: hashtag)
       end
