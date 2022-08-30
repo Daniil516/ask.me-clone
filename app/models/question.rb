@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
+  HASHTAG_PATTERN = /#[[:word:]-]+/
+
   validates :body, presence: true, length: { maximum: 280 }
-  before_validation :find_hashtags
+
+  after_save :find_hashtags
   after_commit :save_hashtags
 
   belongs_to :user
@@ -10,16 +13,15 @@ class Question < ApplicationRecord
   has_many :hashtags, through: :question_hashtags
 
   def find_hashtags
-    hashtag_pattern = /#[[:word:]-]+/
-    @hashtags = (body + answer.to_s).downcase.scan(hashtag_pattern)
+    @hashtags = body.concat(" #{answer}").downcase.scan(HASHTAG_PATTERN)
   end
 
   def save_hashtags
-    self.hashtags.destroy_all
-    
     @hashtags&.uniq&.each do |hashtag|
-      if Hashtag.where(body: hashtag).present?
-        Hashtag.where(body: hashtag)[0].question_hashtags.create(question_id: id)
+      hashtag_to_find = Hashtag.where(body: hashtag)
+
+      if hashtag_to_find.present?
+        hashtag_to_find[0].question_hashtags.create(question_id: id)
       else
         self.hashtags.create(body: hashtag)
       end
