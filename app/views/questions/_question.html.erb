@@ -23,7 +23,7 @@
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
      <span> <% question.hashtags.each do |hashtag| %>
-       <%= link_to hashtag.body, hashtag_path(hashtag), class: "hashtag" %>
+       <%= link_to hashtag.body, hashtag_path(hashtag.body.delete("#")), class: "hashtag" %>
          <% end %>
      </span>
   </div>

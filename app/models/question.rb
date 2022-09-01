@@ -2,7 +2,7 @@ class Question < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 280 }
 
-  after_save :save_hashtags
+  after_commit :save_hashtags, on: %i[create update]
 
   belongs_to :user
   belongs_to :author, class_name: "User", optional: true
@@ -15,9 +15,8 @@ class Question < ApplicationRecord
   end
 
   def save_hashtags
-    find_hashtags&.uniq&.each do |hashtag|
-      new_hashtag = Hashtag.create_or_find_by(body: hashtag)
-      self.question_hashtags.create(hashtag_id: new_hashtag.id)
+    find_hashtags.uniq.each do |hashtag|
+      self.hashtags << Hashtag.create_or_find_by(body: hashtag)
     end
   end
 end
