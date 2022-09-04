@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    (@user = User.find_by(nickname: params[:nickname])) or not_found
+    @user = User.find_by!(nickname: params[:nickname])
   end
 
   def user_params

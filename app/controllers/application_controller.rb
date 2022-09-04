@@ -12,8 +12,4 @@ class ApplicationController < ActionController::Base
   def redirect_with_alert
     redirect_to root_path, alert: "You don't have the rights to do this"
   end
-
-  def not_found
-    raise ActiveRecord::RecordNotFound.new('Record is not found')
-  end
 end
