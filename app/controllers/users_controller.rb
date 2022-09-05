@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       flash.now[:alert] = "Something went wrong with your data"
       render :new
     end
-
   end
 
   def edit
@@ -28,7 +27,6 @@ class UsersController < ApplicationController
       flash.now[:alert] = "Something went wrong with your data edit"
       render :edit
     end
-
   end
 
   def destroy
