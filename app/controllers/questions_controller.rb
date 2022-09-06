@@ -23,7 +23,6 @@ class QuestionsController < ApplicationController
       flash.now[:alert] = "Something went wrong!"
       render :edit
     end
-
   end
 
   def destroy
@@ -37,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).first(10)
+    @questions = Question.includes(%i[author user question_hashtags hashtags]).order(created_at: :desc).first(10)
     @users = User.order(created_at: :desc).last(10)
     @hashtags = Hashtag.joins(:questions).distinct
   end

@@ -1,5 +1,4 @@
 class Question < ApplicationRecord
-
   validates :body, presence: true, length: {maximum: 280}
 
   after_save_commit :save_hashtags
@@ -13,7 +12,7 @@ class Question < ApplicationRecord
   private
 
   def find_hashtags
-    "#{body} #{answer}".downcase.scan(Hashtag::HASHTAG_PATTERN)
+    "#{body} #{answer}".downcase.scan(Hashtag::HASHTAG_PATTERN).map {|tag| tag[1..-1]}
   end
 
   def save_hashtags

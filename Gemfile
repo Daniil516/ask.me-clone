@@ -24,6 +24,7 @@ end
 group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "bullet"
 end
 
 group :development do

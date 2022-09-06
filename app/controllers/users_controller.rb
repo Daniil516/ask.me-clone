@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions
+    @questions = @user.questions.includes(%i[author user question_hashtags hashtags])
     @question = Question.new(user_id: @user.id)
   end
 
