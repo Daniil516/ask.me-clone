@@ -15,6 +15,13 @@ You launch the app create your account, call your friends to join and ask each o
 - Asking question
 ![Снимок экрана от 2022-10-02 15-53-02](https://user-images.githubusercontent.com/83035520/193455090-026557ec-54d5-46cc-b99b-984f9c0ec24d.png)
 
+### Some features
+
+- You can change theme color in user editing page
+![color theme](https://user-images.githubusercontent.com/83035520/193455265-6e4de5b5-7e26-4f9f-b40f-f24e53ce8068.jpg)
+
+- You can choose your avatar by uploading it to gravatar(How to do this - https://blog.hubspot.com/website/gravatar-use-wordpress). Just register with your gravatar email in ask.me clone
+
 ### To start
 
 - You should have installed ruby(3.0.2) on your pc(how to do this - https://www.ruby-lang.org/en/documentation/installation/)
