@@ -228,26 +228,26 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootsnap
-  bullet
+  bootsnap (= 1.13.0)
+  bullet (= 7.0.3)
   capybara
-  css_parser
+  css_parser (= 1.11.0)
   debug
-  font-awesome-rails
+  font-awesome-rails (= 4.7.0.8)
   friendly_id (~> 5.1.0)
-  gravtastic
-  importmap-rails
-  jbuilder
-  nokogiri
+  gravtastic (= 3.2.6)
+  importmap-rails (= 1.1.5)
+  jbuilder (= 2.11.5)
+  nokogiri (= 1.13.8)
   pg
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   selenium-webdriver
-  sprockets-rails
+  sprockets-rails (= 3.4.2)
   sqlite3 (~> 1.4)
-  stimulus-rails
-  turbo-rails
-  web-console
+  stimulus-rails (= 1.1.0)
+  turbo-rails (= 1.1.1)
+  web-console (= 4.2.0)
   webdrivers
 
 RUBY VERSION
