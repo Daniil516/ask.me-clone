@@ -1,8 +1,19 @@
-# Film-to-watch
+# Ask-me clone
 Wanna ask your girlfriend how many guys she had before you, but you don't know how? You are in the right place! In this wonderful application you can: ask questions, ask anonymous questions, answer on them. 
 
 ### Mechanics
 You launch the app create your account, call your friends to join and ask each other any questions you scared to ask personally
+
+### Photos
+
+- start page
+![изображение](https://user-images.githubusercontent.com/83035520/193454922-a6700e9e-130c-4931-abc4-ebf68d21287d.png)
+
+- User page
+![Снимок экрана от 2022-10-02 15-52-41](https://user-images.githubusercontent.com/83035520/193455042-15850bf8-4bea-4750-bffe-00fb6349fca0.png)
+
+- Asking question
+![Снимок экрана от 2022-10-02 15-53-02](https://user-images.githubusercontent.com/83035520/193455090-026557ec-54d5-46cc-b99b-984f9c0ec24d.png)
 
 ### To start
 
